@@ -8,7 +8,7 @@ import requests
 import os
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
-page_count = 10
+page_count = 100
 base_url = 'http://www.freebuf.com/vuls/'
 headers = {'User-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'}
 news_title = []
