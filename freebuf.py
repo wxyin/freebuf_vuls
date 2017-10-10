@@ -4,19 +4,20 @@
 from bs4 import BeautifulSoup
 import jieba
 import logging
-import urllib
+import requests
 import os
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 page_count = 10
 base_url = 'http://www.freebuf.com/vuls/'
+headers = {'User-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'}
 news_title = []
 txt_file = open("freebuf_vuls_titles.txt", "w+")
 
 def page_news_title(page_number):
     page_url = base_url + "page/" + str(page_number)
     print page_url
-    webpage = urllib.urlopen(page_url).read()
+    webpage = requests.get(page_url, headers = headers).text
     soup = BeautifulSoup(webpage, "html5lib")
     news_list = soup.find_all('div', {'class': 'news-info'})
     news_title_list = []
