@@ -8,7 +8,7 @@ import urllib
 import os
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
-page_count = 100
+page_count = 10
 base_url = 'http://www.freebuf.com/vuls/'
 news_title = []
 txt_file = open("freebuf_vuls_titles.txt", "w+")
@@ -36,7 +36,3 @@ for page_number in range(0, page_count):
         txt_file.write(title.encode('utf8'))
 
 txt_file.close()
-    
-
-
-
